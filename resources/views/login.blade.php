@@ -13,6 +13,9 @@
 @if (Session::get('failed'))
   <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert"><span class="font-medium">Opps!</span> {{ Session::get('failed') }}</div>
 @endif
+@if(Session::get('logout'))
+<div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert"><span class="font-medium"></span> {{ Session::get('logout') }}</div>
+@endif
   <div class="">
     <div class="border-b border-gray-900/10 pb-8 pt-10">
       <h2 class="text-base font-semibold leading-7 text-gray-900 lg:text-2xl ">Login</h2>
@@ -43,7 +46,7 @@
         </div>
       </div>
       <div class="mt-6 flex items-center justify-start gap-x-6">
-      <button type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a href="">Login</a></button> 
+      <button type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button> 
       </div> 
     </div>
 </form>

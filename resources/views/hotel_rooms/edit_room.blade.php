@@ -19,16 +19,16 @@
   </div>
   <div class="mb-5">
     <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-      <option value="single" {{ $hotelRoom['type' == 'single' ? 'selecterd' : '']  }}>Single</option>
-      <option value="double" {{ $hotelRoom['type' == 'double' ? 'selected' : ''] }}>Double</option>
-      <option value="suite" {{ $hotelRoom['type' == 'suite' ? 'selected' : ''] }}>Suite</option>
+      <option value="single" {{ $hotelRoom['type'] === 'single' ? 'selecterd' : ''  }}>Single</option>
+      <option value="double" {{ $hotelRoom['type'] === 'double' ? 'selected' : '' }}>Double</option>
+      <option value="suite" {{ $hotelRoom['type'] === 'suite' ? 'selected' : '' }}>Suite</option>
     </select>
   </div>
   <div class="mb-5">
     <select name="status" id="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-      <option value="available" {{ $hotelRoom['status' == 'available' ? 'selected' : '']  }}>Tersedia</option>
-      <option value="booked" {{ $hotelRoom['status' == 'booked' ? 'selected' : ''] }}>Sudah di booking</option>
-      <option value="maintanance" {{ $hotelRoom['status' == 'maintanance' ? 'selected' : ''] }}>Dalam perawatan</option>
+      <option value="available" {{ $hotelRoom['status'] === 'available' ? 'selected' : ''  }}>available</option>
+      <option value="booked" {{ $hotelRoom['status'] === 'booked' ? 'selected' : '' }}>booked</option>
+      <option value="maintanance" {{ $hotelRoom['status'] === 'maintanance' ? 'selected' : '' }}>maintanance</option>
     </select>
   </div>
   <div class="mb-5">

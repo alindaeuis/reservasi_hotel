@@ -9,5 +9,10 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'type', 'room_id', 'statu', 'check_in_date', 'check_out_date'];
+    protected $fillable = ['name', 'type', 'room_id', 'check_in_date', 'check_out_date'];
+
+
+    public function hotelRooms() {
+        return $this->belongsTo(HotelRoom::class);
+    }
 }

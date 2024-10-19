@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HotelRoom;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +13,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-      return view('dashboard.dashboard');
+    $totalRooms = HotelRoom::count();
+    $totalReservations = Reservation::count();
+    // $bookedRooms = HotelRoom::whereHas('reservations')->count();
+    // $availableRooms = $totalRooms - $bookedRooms;
+      return view('dashboard.dashboard', [
+        'totalRooms'=> $totalRooms,
+        'totalReservations'=>$totalReservations,
+    ]);
     }
 
     /**

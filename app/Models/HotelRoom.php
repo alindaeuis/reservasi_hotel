@@ -10,4 +10,8 @@ class HotelRoom extends Model
     use HasFactory;
 
     protected $fillable = ['room_number', 'type', 'status', 'price'];
+
+    public function reservationTables() {
+        return $this->hasMany(Reservation::class);
+    }
 }

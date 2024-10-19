@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('hotel_rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('room_number')->unique();
+            $table->integer('room_number')->unique();
             $table->enum('type', ['single', 'double', 'suite']);
             $table->integer('price');
             $table->enum('status', ['available', 'booked', 'maintenance'])->default('available');
+            $table->integer('total_rooms');
             $table->timestamps();
         });
     }

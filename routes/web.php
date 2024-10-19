@@ -33,7 +33,7 @@ Route::prefix('hotel_room')->name('hotel_room.')->group( function() {
   Route::get('/add', [HotelRoomController::class, 'create'])->name('add');
   Route::post('/add/process', [HotelRoomController::class, 'store'])->name('add.process');
   Route::delete('/delete/{id}', [HotelRoomController::class, 'destroy'])->name('delete');
-  Route::get('/ubah/{id}', action: [HotelRoomController::class, 'edit'])->name('edit');
+  Route::get('/edit/{id}', action: [HotelRoomController::class, 'edit'])->name('edit');
   Route::patch('/edit/process/{id}', [HotelRoomController::class, 'update'])->name('edit.process');
 });
 
@@ -42,8 +42,9 @@ Route::prefix('hotel_reservation')->name('hotel_reservation.')->group( function(
   Route::get('/add', [ReservationController::class, 'create'])->name('add');
   Route::post('/add/process', [ReservationController::class, 'store'])->name('add.process');
   Route::get('/edit/{id}', [ReservationController::class, 'edit'])->name('edit');
-  Route::post('/edit/process/{id}', [ReservationController::class, 'update'])->name('edit.process');
-  Route::delete('/delete', [ReservationController::class, 'destroy'])->name('delete');
+  Route::patch('/edit/process/{id}', [ReservationController::class, 'update'])->name('edit.process');
+  Route::delete('/delete/{id}', [ReservationController::class, 'destroy'])->name('delete');
+  Route::get('/show/detail', [ReservationController::class, 'show'])->name('show.detail');
 
 });
 

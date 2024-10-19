@@ -13,6 +13,12 @@ class HotelRoomController extends Controller
     public function index(Request $request)
     {
         $room = HotelRoom::where('room_number', 'LIKE', '%'. $request->cari . '%')->simplePaginate(5)->appends($request->all());
+
+        // $totalRooms = 5;
+        // $emptyRows = $totalRooms - count($room);
+        // for($i=1; $i <= $emptyRows; $i++) {
+        //     $room->push(null);
+        // }
         return view('hotel_rooms.hotel_room', compact('room'));
     }
 
@@ -30,8 +36,8 @@ class HotelRoomController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'room_number'=>'required|max:10',
-            'type'=>'required|in:single,double,suite',
+            'room_number'=>'required',
+            'type'=>'required',
             'status'=>'required',
             'price'=>'required|numeric',
         ]);
@@ -42,7 +48,7 @@ class HotelRoomController extends Controller
         //     'suite'=>400000,
         // };
 
-        $rooms = HotelRoom::create($request->all());
+        HotelRoom::create($request->all());
         // HotelRoom::create([
         //     'room_number'=>$request->input('room_number'),
         //     'type'=>$request->input('type'),
@@ -56,7 +62,9 @@ class HotelRoomController extends Controller
      */
     public function show(HotelRoom $hotelRoom)
     {
-        //
+        // $data = HotelRoom::with('Reservation')->get();
+
+        // return view('hotel_rooms.hotel_room', compact('data'));
     }
 
     /**
@@ -74,8 +82,8 @@ class HotelRoomController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'room_number'=>'required|max:10',
-            'type'=>'required|in:single,double,suite',
+            'room_number'=>'required',
+            'type'=>'required',
             'status'=>'required',
             'price'=>'required|numeric',
         ]);
@@ -96,6 +104,6 @@ class HotelRoomController extends Controller
     public function destroy($id)
     {
         HotelRoom::where('id', $id)->delete();
-        return redirect()->back()->with('success', 'berhasil menghapus data user');
+        return redirect()->back()->with('success', 'berhasil menghapus data kamar');
     }
 }
